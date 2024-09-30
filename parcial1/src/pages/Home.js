@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import SportCol from "../components/SportCol";
+import Card from 'react-bootstrap/Card';
+//import SportCol from "./SportCol";
 //import { FormattedMessage } from "react-intl";
 
 function generateRandomString(length) {
@@ -33,11 +34,10 @@ function Home(){
         "https://www.kitzbuehel.com/fileadmin/_processed_/7/4/csm_Rennrad_Fr%C3%BChling_Kitzb%C3%BChel__c__Kitzb%C3%BChel_Tourismus_-_Thomas_Griesbeck__2__86fe21c4a7.jpg",
         "https://www.sundried.com/cdn/shop/articles/c27ddca5b9550a6940dfef2581b6c38d_1100x.jpg",
         "https://c1.wallpaperflare.com/preview/956/982/551/life-beauty-scene-swim.jpg"
-    ]
-    console.log(navigator.language);
+    ]    
     return(
-        <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="navbar-container">
                 <img
                 src={user.imgUrl}
@@ -53,14 +53,29 @@ function Home(){
         </nav>
         <div className="home-container">
             {Array.from({ length: 3 }).map((_, i) => (
-            <SportCol
-                key={i}
-                sport={sportList[i]}
-                img={sportImgs[i]}
-            ></SportCol>
+            <div key={i} className="sport-container">
+            <h2>
+             hola
+            </h2>
+            <div className="sports">
+              {Array.from({ length: 10 }).map((_, j) => (
+                <Card className ="sport-card">
+                    <Card.Img src={sportImgs[i]} alt="Card image"
+                    width="60"
+                    height="60"/>
+                    <Card.ImgOverlay>
+                    <Card.Title>
+                        Title
+                    </Card.Title>    
+                  </Card.ImgOverlay>
+              </Card>
+              ))}
+              
+            </div>
+          </div>
             ))}
         </div>
-    </div>
+    </>
     );
 }
 export default Home;
