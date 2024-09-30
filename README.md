@@ -30,7 +30,7 @@ Para la organización del proyecto, inicialmente se trató de hacer una organiza
 Finalmente, los componentes utilizados fueron los siguientes:
 * *useState*: Para actualizar el valor de variables que representan los campos donde el usuario es capaz de ingresar valores. 
 * *useNavigate*: Para redireccionar entre páginas de la aplicación.
-* *Bootstrap - Container, Row, Col, Form, Button.*: Para permitir la visualización de componentes gráficos complejas mediante el uso de una librería simple. 
+* *Bootstrap - Container, Row, Col, Form, Button, Card.*: Para permitir la visualización de componentes gráficos complejas mediante el uso de una librería simple. 
 * *Bootstrap - Modal*: Para lograr mostrar componentes gráficos encima de otros. En especifico para mostrar el detalle de las cartas.  
 
 ## Visualización:
