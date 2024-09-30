@@ -32,11 +32,12 @@ function Home(){
     const sportImgs = [
         "https://www.kitzbuehel.com/fileadmin/_processed_/7/4/csm_Rennrad_Fr%C3%BChling_Kitzb%C3%BChel__c__Kitzb%C3%BChel_Tourismus_-_Thomas_Griesbeck__2__86fe21c4a7.jpg",
         "https://www.sundried.com/cdn/shop/articles/c27ddca5b9550a6940dfef2581b6c38d_1100x.jpg",
-        "https://media.istockphoto.com/id/155226012/photo/swimmer-underwater-after-the-jump-on-blue-background.jpg"
+        "https://c1.wallpaperflare.com/preview/956/982/551/life-beauty-scene-swim.jpg"
     ]
+    console.log(navigator.language);
     return(
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="navbar-container">
                 <img
                 src={user.imgUrl}
@@ -45,7 +46,7 @@ function Home(){
                 className="d-inline-block align-top"
                 alt=""
                 />
-                <span class="navbar-text">
+                <span className="navbar-text">
                     <b>{user.name}</b> - Best Run Time: {user.bestRunTime}s - Best Swim Time: {user.bestSwimTime}s - Best Cycle Time: {user.bestCycleTime}s
                 </span>
             </div>
@@ -53,6 +54,7 @@ function Home(){
         <div className="home-container">
             {Array.from({ length: 3 }).map((_, i) => (
             <SportCol
+                key={i}
                 sport={sportList[i]}
                 img={sportImgs[i]}
             ></SportCol>

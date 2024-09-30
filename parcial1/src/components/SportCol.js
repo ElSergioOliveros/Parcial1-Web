@@ -7,11 +7,8 @@ function SportCol(sport, img){
        hola
       </h2>
       <div className="sports">
-        {Array.from({ length: 1 }).map((_, index) => (
-          <SportCard
-            sport={sport}
-            img={img}
-          ></SportCard>
+        {Array.from({ length: 1 }).map((_, i) => (
+          <SportCard key={i} sport={sport} img={img}></SportCard>
         ))}
       </div>
     </div>
