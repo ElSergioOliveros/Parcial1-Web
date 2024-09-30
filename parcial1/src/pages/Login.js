@@ -1,74 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-}
-from 'mdb-react-ui-kit';
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-
-function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+function Login(){
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleEmailChange = (event)=>{
-        setEmail(event.target.value);
-    }
-
-    const handlePasswordChange = (event)=>{
-        setPassword(event.target.value);
-    }
-
-    function handleLogin(){
-        let text = "";
-
-        if (!(email.includes("@") && email.includes("."))){
-            text += "Your email is incorrect. \n"
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    function handleSubmit(e){
+        e.preventDefault();
+        let alertMsg = "";
+        let notCorrect= false;
+        if (password.length !== 8){
+            alertMsg+="The password is not 8 characters long\n";
+            notCorrect = true;
         }
-        if (password.length <= 8){ 
-            text += "Your password is too short"
+        if(!emailRegex.test(email)){
+            alertMsg+="The email does not have the expected format\n";
+            notCorrect = true;
         }
 
-        if (text.length > 0){
-            alert(text);
+        if(notCorrect){
+          alert(alertMsg);  
         }
-        else {
-            navigate("./Home")
+        else{
+         navigate("/Home");
         }
     }
 
     return (
-        <MDBContainer fluid>
+      <Container className="login-container">
+        <Row className="justify-content-md-center">
+          <Col md={6}>
+          <h3>
+              Login
+          </h3>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  style={{ width: '200px' }}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  style={{ width: '200px' }}
+                />
+              </Form.Group>
+  
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>   
+  
+            </Form>
+          </Col>
+        </Row>
+      </Container>  
+      );
+};
 
-        <MDBRow className='d-flex justify-content-center align-items-center h-100'>
-            <MDBCol col='12'>
-
-            <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '500px'}}>
-                <MDBCardBody className='p-5 w-100 d-flex flex-column'>
-
-                <h2 className="fw-bold mb-2 text-center">Login</h2>
-
-                <MDBInput wrapperClass='mb-4 w-100' label='Email address' id='formControlLg' type='email' size="lg" onChange={handleEmailChange}/>
-                <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg" onChange={handlePasswordChange}/>
-
-                <MDBBtn size='lg' onClick={handleLogin}>
-                    Login
-                </MDBBtn>
-
-                </MDBCardBody>
-            </MDBCard>
-            </MDBCol>
-        </MDBRow>
-        </MDBContainer>
-    );
-}
 
 export default Login;

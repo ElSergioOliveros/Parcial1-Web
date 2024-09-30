@@ -1,0 +1,6 @@
+body {
+    background-image: url("https://i.natgeofe.com/n/6ab670b9-4652-4a22-b4da-729cf0ff62af/everest-book-talk-climbers.jpg?w=2560&h=1702");
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center center; /* Centers the image */
+    background-size: cover; /* Resizes the image to cover the entire background */
+  }
