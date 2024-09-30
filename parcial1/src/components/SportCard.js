@@ -1,21 +1,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import "./SportCard.css";
 
-function SportCard(user){
+function SportCard(sport, img){
     return(
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Sport Event</Card.Title>
-        <Card.Text>
-          <p>{user.bestRunTime}</p>
-          <p>{user.bestSwimTime}</p>
-          <p>{user.bestCicleTime}</p>
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
+    <Card className ="sport-card">
+      <Card.Img src={img} alt="Card image" />
+        <Card.ImgOverlay>
+        <Card.Title>
+          Title
+        </Card.Title>    
+        </Card.ImgOverlay>
     </Card>
     );
 }
