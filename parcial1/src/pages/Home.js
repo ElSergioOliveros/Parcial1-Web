@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import Card from 'react-bootstrap/Card';
+import "./Home.css"
 //import SportCol from "./SportCol";
 //import { FormattedMessage } from "react-intl";
 
@@ -31,7 +32,7 @@ function Home(){
     const user = getMockUser();
     const sportList = ["cycling", "running", "swimming"];
     const sportImgs = [
-        "https://www.kitzbuehel.com/fileadmin/_processed_/7/4/csm_Rennrad_Fr%C3%BChling_Kitzb%C3%BChel__c__Kitzb%C3%BChel_Tourismus_-_Thomas_Griesbeck__2__86fe21c4a7.jpg",
+        "https://www.alpecincycling.com/wp-content/uploads/2021/08/AlpecinRideClub_Lene_Gardasee-171-1536x1022.jpg",
         "https://www.sundried.com/cdn/shop/articles/c27ddca5b9550a6940dfef2581b6c38d_1100x.jpg",
         "https://c1.wallpaperflare.com/preview/956/982/551/life-beauty-scene-swim.jpg"
     ]    
@@ -51,22 +52,28 @@ function Home(){
                 </span>
             </div>
         </nav>
-        <div className="home-container">
+        <div className="home-div">
             {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className="sport-container">
             <h2>
-             hola
+            {sportList[i]}
             </h2>
-            <div className="sports">
+            <div className="sport-col-div">
               {Array.from({ length: 10 }).map((_, j) => (
-                <Card className ="sport-card">
+                <Card key={j} className ="sport-card">
                     <Card.Img src={sportImgs[i]} alt="Card image"
-                    width="60"
-                    height="60"/>
+                    width="120"
+                    height="120"/>
                     <Card.ImgOverlay>
-                    <Card.Title>
-                        Title
-                    </Card.Title>    
+                    <Card.Title className="text-white">
+                        {sportList[i]}
+                    </Card.Title>   
+                    <Card.Text className="text-white" >
+                        Ejercicio
+                    </Card.Text>
+                    <Card.Text className="text-white">
+                        {generateRandomNumber(10, 40)}Km - {generateRandomNumber(3600,3600*4 )}s 
+                    </Card.Text> 
                   </Card.ImgOverlay>
               </Card>
               ))}

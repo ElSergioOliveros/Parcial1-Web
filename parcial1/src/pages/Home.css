@@ -1,0 +1,16 @@
+.home-div {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    grid-gap: 80px;
+  }
+
+.sport-col-div {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 40px;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+    
