@@ -1,0 +1,9 @@
+{
+    "passwordNot8Char":"The password is not 8 characters long\n",
+    "emailWrongFormat":"The email does not have the expected format\n",
+    "login":"Login",
+    "password":"Password",
+    "enterEmail":"Enter Email",
+    "submit":"Submit",
+    "email":"Email"    
+}

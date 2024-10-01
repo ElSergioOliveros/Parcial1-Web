@@ -3,8 +3,7 @@ import Card from 'react-bootstrap/Card';
 import "./Home.css"
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-//import SportCol from "./SportCol";
-//import { FormattedMessage } from "react-intl";
+//import { FormattedMessage, useIntl} from "react-intl";
 
 function generateRandomString(length) {
     let result = '';
